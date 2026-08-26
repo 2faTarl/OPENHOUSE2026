@@ -1,0 +1,1502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    /* WARNA KANAAN */
+
+    --kanaan-blue: #23768e;
+    --kanaan-blue-dark: #17566c;
+    --kanaan-blue-light: #eaf4f6;
+
+    --kanaan-gold: #e9d3a4;
+    --kanaan-gold-light: #f8f1e4;
+
+    --white: #ffffff;
+
+    --background: #f7f9fa;
+
+    --text: #17313a;
+    --gray: #76858a;
+
+    --border: #dce7ea;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    overflow-x: hidden;
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+button,
+img {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+svg {
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        max(22px, env(safe-area-inset-top))
+        max(35px, env(safe-area-inset-right))
+        max(30px, env(safe-area-inset-bottom))
+        max(35px, env(safe-area-inset-left));
+
+}
+
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    width: min(1450px, 100%);
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    z-index: 20;
+
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.brand-logo {
+
+    width: 67px;
+
+    height: 67px;
+
+    object-fit: contain;
+
+}
+
+
+.brand-text h1 {
+
+    font-size: 23px;
+
+    line-height: 1.05;
+
+    font-weight: 750;
+
+    letter-spacing: -0.4px;
+
+    color: var(--text);
+
+}
+
+
+.brand-text p {
+
+    margin-top: 7px;
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+.icon-btn {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    color: var(--kanaan-blue);
+
+    display: grid;
+
+    place-items: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 22px
+        rgba(19, 66, 80, 0.08);
+
+    transition: 0.2s;
+
+}
+
+
+.icon-btn svg {
+
+    width: 22px;
+
+    height: 22px;
+
+}
+
+
+.icon-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(19, 66, 80, 0.13);
+
+}
+
+
+
+/* =========================
+   CAMERA SECTION
+========================= */
+
+.camera-section {
+
+    min-height:
+        calc(100vh - 105px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px 0 35px;
+
+    position: relative;
+
+}
+
+
+
+/* =========================
+   BACKGROUND ORNAMENT
+========================= */
+
+.ornament {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+.ornament-left {
+
+    width: 430px;
+
+    height: 430px;
+
+    left: -270px;
+
+    top: 22%;
+
+    border:
+        80px solid
+        var(--kanaan-blue-light);
+
+}
+
+
+.ornament-right {
+
+    width: 390px;
+
+    height: 390px;
+
+    right: -250px;
+
+    bottom: 8%;
+
+    border:
+        65px solid
+        var(--kanaan-gold-light);
+
+}
+
+
+
+/* =========================
+   CAMERA CONTAINER
+========================= */
+
+.camera-container {
+
+    width: min(860px, 94vw);
+
+}
+
+
+.camera-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 11px;
+
+    padding: 0 5px;
+
+    color: var(--gray);
+
+    font-size: 11px;
+
+    letter-spacing: 1.3px;
+
+    font-weight: 700;
+
+}
+
+
+.camera-top > div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+
+.live-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--kanaan-blue);
+
+}
+
+
+.event-label {
+
+    color: var(--kanaan-blue);
+
+}
+
+
+
+/* =========================
+   CAMERA
+========================= */
+
+.camera-wrapper {
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background: #12191c;
+
+    border:
+        5px solid
+        white;
+
+    box-shadow:
+        0 25px 70px
+        rgba(27, 67, 78, 0.17);
+
+}
+
+
+/* GOLD ACCENT */
+
+.camera-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 20px;
+
+    border:
+        2px solid
+        rgba(233, 211, 164, 0.55);
+
+    z-index: 4;
+
+    pointer-events: none;
+
+}
+
+
+.camera-wrapper video {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scaleX(-1);
+
+}
+
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    z-index: 15;
+
+    font-size:
+        clamp(120px, 20vw, 220px);
+
+    font-weight: 800;
+
+    color: white;
+
+    background:
+        rgba(8, 35, 44, 0.22);
+
+    text-shadow:
+        0 10px 40px
+        rgba(0, 0, 0, 0.3);
+
+    animation:
+        countdownPop
+        0.45s ease;
+
+}
+
+
+@keyframes countdownPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(1.45);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+
+/* =========================
+   FLASH
+========================= */
+
+.flash {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 25;
+
+    pointer-events: none;
+
+    background: white;
+
+    opacity: 0;
+
+}
+
+
+.flash.active {
+
+    animation:
+        flashEffect
+        0.35s ease;
+
+}
+
+
+@keyframes flashEffect {
+
+    0% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+
+/* =========================
+   CAMERA ERROR
+========================= */
+
+.camera-message {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 40;
+
+    background: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+.camera-error-logo {
+
+    width: 105px;
+
+    height: 105px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+
+}
+
+
+.camera-message h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+
+    color: var(--text);
+
+}
+
+
+.camera-message p {
+
+    color: var(--gray);
+
+    max-width: 430px;
+
+    line-height: 1.65;
+
+}
+
+
+.camera-message button {
+
+    margin-top: 23px;
+
+    border: none;
+
+    padding: 13px 25px;
+
+    border-radius: 12px;
+
+    background: var(--kanaan-blue);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+}
+
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 42px;
+
+    margin-top: 28px;
+
+}
+
+
+
+/* SIDE BUTTON */
+
+.secondary-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--gray);
+
+    min-width: 95px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+}
+
+
+.control-icon {
+
+    width: 53px;
+
+    height: 53px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border:
+        1px solid
+        var(--border);
+
+    color: var(--kanaan-blue);
+
+    display: grid;
+
+    place-items: center;
+
+    box-shadow:
+        0 6px 20px
+        rgba(20, 64, 77, 0.08);
+
+    transition: 0.2s;
+
+}
+
+
+.control-icon svg {
+
+    width: 22px;
+
+    height: 22px;
+
+}
+
+
+.secondary-btn:hover
+.control-icon {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.secondary-btn small {
+
+    font-size: 11px;
+
+    font-weight: 550;
+
+}
+
+
+
+/* =========================
+   CAPTURE BUTTON
+========================= */
+
+.capture-btn {
+
+    width: 94px;
+
+    height: 94px;
+
+    border-radius: 50%;
+
+    border:
+        7px solid
+        white;
+
+    background:
+        var(--kanaan-blue);
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 32px
+        rgba(35, 118, 142, 0.32),
+        0 0 0 2px
+        var(--kanaan-gold);
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+
+}
+
+
+.capture-btn:hover {
+
+    transform: scale(1.055);
+
+}
+
+
+.capture-btn:active {
+
+    transform: scale(0.94);
+
+}
+
+
+.capture-btn:disabled {
+
+    opacity: 0.45;
+
+    cursor: not-allowed;
+
+}
+
+
+.capture-inner {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: white;
+
+}
+
+
+.capture-inner svg {
+
+    width: 36px;
+
+    height: 36px;
+
+    stroke-width: 1.65;
+
+}
+
+
+
+/* =========================
+   PHOTO HINT
+========================= */
+
+.photo-hint {
+
+    margin-top: 17px;
+
+    font-size: 11px;
+
+    color: #94a0a4;
+
+    letter-spacing: 0.2px;
+
+}
+
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-section {
+
+    width: min(1100px, 100%);
+
+    margin:
+        35px auto
+        80px;
+
+}
+
+
+.section-label {
+
+    color:
+        var(--kanaan-blue);
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+    font-weight: 750;
+
+}
+
+
+.gallery-header h2 {
+
+    margin-top: 5px;
+
+    font-size: 26px;
+
+}
+
+
+.gallery-header p {
+
+    margin-top: 5px;
+
+    font-size: 13px;
+
+    color: var(--gray);
+
+}
+
+
+.gallery {
+
+    margin-top: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(190px, 1fr)
+        );
+
+    gap: 16px;
+
+}
+
+
+.photo-item {
+
+    aspect-ratio: 4 / 3;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: white;
+
+    border:
+        1px solid
+        var(--border);
+
+    box-shadow:
+        0 8px 25px
+        rgba(20, 64, 77, 0.08);
+
+    transition: 0.2s;
+
+}
+
+
+.photo-item:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+.photo-item img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 20px;
+
+}
+
+
+.modal-backdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(8, 33, 41, 0.82);
+
+    backdrop-filter:
+        blur(9px);
+
+}
+
+
+.modal-content {
+
+    width:
+        min(850px, 95vw);
+
+    max-height: 94vh;
+
+    position: relative;
+
+    z-index: 2;
+
+    background: white;
+
+    padding: 14px;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 35px 100px
+        rgba(0, 0, 0, 0.35);
+
+}
+
+
+.modal-brand {
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 5px;
+
+}
+
+
+.modal-brand img {
+
+    width: 34px;
+
+    height: 34px;
+
+    object-fit: contain;
+
+}
+
+
+.modal-brand span {
+
+    font-size: 10px;
+
+    letter-spacing: 1.25px;
+
+    font-weight: 700;
+
+    color:
+        var(--kanaan-blue);
+
+}
+
+
+.preview-image {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 69vh;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    background: #111;
+
+}
+
+
+.close-btn {
+
+    position: absolute;
+
+    right: 22px;
+
+    top: 17px;
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        #f1f5f6;
+
+    color:
+        var(--text);
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+}
+
+
+.modal-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 14px;
+
+}
+
+
+.download-btn,
+.delete-btn {
+
+    border: none;
+
+    min-height: 47px;
+
+    padding:
+        0 23px;
+
+    border-radius: 12px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+}
+
+
+.download-btn {
+
+    background:
+        var(--kanaan-blue);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+}
+
+
+.download-btn svg {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+
+.delete-btn {
+
+    background:
+        var(--kanaan-gold-light);
+
+    color:
+        var(--kanaan-blue-dark);
+
+}
+
+
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+
+    display:
+        none !important;
+
+}
+
+
+#canvas {
+
+    display: none;
+
+}
+
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media
+(max-width: 900px) {
+
+    .app {
+
+        padding:
+            20px 17px 30px;
+
+    }
+
+
+    .camera-section {
+
+        min-height:
+            calc(100vh - 95px);
+
+    }
+
+
+    .camera-container {
+
+        width:
+            min(760px, 96vw);
+
+    }
+
+}
+
+
+
+/* =========================
+   PHONE
+========================= */
+
+@media
+(max-width: 600px) {
+
+    .app {
+
+        padding:
+            max(
+                15px,
+                env(safe-area-inset-top)
+            )
+            12px
+            max(
+                22px,
+                env(safe-area-inset-bottom)
+            );
+
+    }
+
+
+    /* HEADER */
+
+    .header {
+
+        padding: 0 4px;
+
+    }
+
+
+    .brand {
+
+        gap: 10px;
+
+    }
+
+
+    .brand-logo {
+
+        width: 50px;
+
+        height: 50px;
+
+    }
+
+
+    .brand-text h1 {
+
+        font-size: 19px;
+
+    }
+
+
+    .brand-text p {
+
+        font-size: 11px;
+
+        margin-top: 4px;
+
+    }
+
+
+    .icon-btn {
+
+        width: 43px;
+
+        height: 43px;
+
+    }
+
+
+    /* CAMERA */
+
+    .camera-section {
+
+        justify-content:
+            flex-start;
+
+        min-height: auto;
+
+        padding-top: 30px;
+
+    }
+
+
+    .camera-container {
+
+        width: 100%;
+
+    }
+
+
+    .camera-top {
+
+        padding: 0 6px;
+
+        font-size: 9px;
+
+    }
+
+
+    .camera-wrapper {
+
+        width: 100%;
+
+        aspect-ratio: 3 / 4;
+
+        border-radius: 24px;
+
+        border-width: 4px;
+
+    }
+
+
+    .camera-wrapper::before {
+
+        border-radius: 20px;
+
+    }
+
+
+    .camera-wrapper video {
+
+        object-fit: cover;
+
+    }
+
+
+    /* BUTTON */
+
+    .controls {
+
+        width: 100%;
+
+        gap: 19px;
+
+        margin-top: 25px;
+
+    }
+
+
+    .capture-btn {
+
+        width: 82px;
+
+        height: 82px;
+
+        border-width: 6px;
+
+    }
+
+
+    .capture-inner svg {
+
+        width: 31px;
+
+        height: 31px;
+
+    }
+
+
+    .secondary-btn {
+
+        min-width: 76px;
+
+    }
+
+
+    .control-icon {
+
+        width: 48px;
+
+        height: 48px;
+
+    }
+
+
+    .secondary-btn small {
+
+        font-size: 9.5px;
+
+    }
+
+
+    .photo-hint {
+
+        margin-top: 14px;
+
+        font-size: 10px;
+
+    }
+
+
+    /* REMOVE BIG DESKTOP ORNAMENT */
+
+    .ornament {
+
+        display: none;
+
+    }
+
+
+    /* ERROR */
+
+    .camera-error-logo {
+
+        width: 90px;
+
+        height: 90px;
+
+    }
+
+
+    .camera-message h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .camera-message p {
+
+        font-size: 14px;
+
+    }
+
+
+    /* GALLERY */
+
+    .gallery {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+
+    /* MODAL */
+
+    .modal {
+
+        padding: 10px;
+
+    }
+
+
+    .modal-content {
+
+        padding: 10px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .modal-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .download-btn,
+    .delete-btn {
+
+        width: 100%;
+
+    }
+
+}
